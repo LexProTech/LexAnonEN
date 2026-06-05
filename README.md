@@ -8,7 +8,7 @@ Files are processed entirely in the browser — no data is ever sent to any serv
 ## Features
 
 - **Fully offline** — no servers, no cloud uploads
-- **Document language:** English, Russian, or both
+- **Document language:** English (with multilingual support)
 - **17 entity categories** — from names to IBAN
 - **3 replacement modes:** placeholders (`NAME_1`), masking (`████`), deletion
 - **Exception dictionary** — words and phrases that won't be replaced
@@ -23,23 +23,19 @@ Files are processed entirely in the browser — no data is ever sent to any serv
 
 | Category | Examples |
 |---|---|
-| ФИО / Name | Mr. John Smith, Jane Doe |
-| Company | Acme Corp. LLC, ООО «Ромашка» |
-| ИНН | 7707083893 |
-| КПП | 770701001 |
-| ОГРН / ОГРНИП | 1027700132195 |
-| БИК | 044525225 |
-| Bank Account | 40702810000000000001 |
-| SSN (US) | 123-45-6789 |
+| Full Name | Mr. John Smith, Dr. Emily Johnson |
+| Company | Acme Corp. LLC, GlobalTech Inc., Smith & Partners LLP |
 | Tax ID / EIN | 12-3456789 |
-| SWIFT | SABRRUMM |
-| IBAN | DE89370400440532013000 |
-| Email | john@example.com |
-| Phone | +1 (555) 123-4567 |
+| SSN (US) | 123-45-6789 |
+| SWIFT | BARCGB22 |
+| IBAN | GB29NWBK60161331926819 |
+| Bank Account | account numbers in standard formats |
+| Email | john.smith@example.com |
+| Phone | +1 (555) 123-4567, +44 20 7946 0958 |
 | URL | https://example.com |
-| Address | 123 Main St, New York, NY 10001 |
+| Address | 123 Main St, New York, NY 10001; 10 Downing St, London SW1A 2AA |
 | Contract No. *(off)* | No. 123/AB-2024 |
-| Amounts *(off)* | $150,000.00 |
+| Amounts *(off)* | $150,000.00, £85,000, €200,000 |
 
 ---
 
@@ -78,7 +74,7 @@ Files are processed entirely in the browser — no data is ever sent to any serv
 │   └── popup.js          # UI logic
 ├── lib/
 │   ├── entity-finder.js  # Entity detection (regex + rules)
-│   ├── validators.js     # INN, OGRN, BIK validation
+│   ├── validators.js     # Checksum validation (SSN, IBAN, EIN, etc.)
 │   ├── replacer.js       # Text replacement
 │   └── docx-parser.js    # .docx parsing and rebuilding
 ├── worker/
